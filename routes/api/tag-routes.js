@@ -46,6 +46,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+  console.log("hello");
   Tag.update(req.body,
     {
       where: {
@@ -53,8 +54,14 @@ router.put('/:id', (req, res) => {
       }
     }
   ).then(tag => {
-    res.json(tag);
-  });
+    console.log(tag);
+    if (tag > 0) {
+      res.json(tag);
+    }
+    
+  }).catch(err => {
+    console.log(err);
+  })
 });
 
 router.delete('/:id', (req, res) => {
