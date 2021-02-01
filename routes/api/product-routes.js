@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     include: [
       Category,
       {
-        model:Tag,
+        model: Tag,
         through: ProductTag
       }
     ]
